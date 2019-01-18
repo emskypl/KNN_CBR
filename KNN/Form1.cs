@@ -42,6 +42,7 @@ namespace KNN
             using (var dataContext = new BazaDanychStruktura())
             {
                 ControlTextBox();
+
                 if (!textBoxClassification.Text.Equals(""))
                 {
                     dataContext.Irises.Add(new Irises() { sepal_length = Double.Parse(textBoxSepalLength.Text.ToString()), sepal_width = Double.Parse(textBoxSepalWidth.Text.ToString()), petal_length = Double.Parse(textBoxPetalLength.Text.ToString()), petal_width = Double.Parse(textBoxPetalWidth.Text.ToString()), classification = textBoxClassification.Text.ToString() });
@@ -63,7 +64,7 @@ namespace KNN
 
         private void loadDatabase()
         {
-
+            logBox.Text += "TESTOWA WARTOSC 15:37";
             var DaneWczytane = from BazaDanychStruktura in bazaDanychStruktura.Irises select BazaDanychStruktura;           
             dataGridView1.Rows.Clear();
             dataGridView1.Columns.Clear();
