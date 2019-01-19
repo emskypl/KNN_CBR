@@ -53,6 +53,9 @@ namespace KNN
             instructionsMouseEvents.ToolTipTitle = "Instrukcja:";
             instructionsMouseEvents.IsBalloon = false;
 
+            MessageBox.Show("Witaj w \u0022KNN - Diagnoza Kwiatu Irysa\u0022! \n" +
+                            "Użyj przycisku \u0022Pokaż Instrukcję\u0022 aby uzyskać pomoc.");
+
         }
         BazaDanychStruktura bazaDanychStruktura = new BazaDanychStruktura();
 
