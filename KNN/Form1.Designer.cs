@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form));
+            this.dataGridView = new System.Windows.Forms.DataGridView();
             this.textBoxSepalLength = new System.Windows.Forms.TextBox();
             this.textBoxSepalWidth = new System.Windows.Forms.TextBox();
             this.textBoxPetalLength = new System.Windows.Forms.TextBox();
             this.textBoxPetalWidth = new System.Windows.Forms.TextBox();
-            this.loadButton = new System.Windows.Forms.Button();
+            this.reloadButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.modifyButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.diagnozeButton = new System.Windows.Forms.Button();
             this.textBoxID = new System.Windows.Forms.TextBox();
@@ -49,31 +50,37 @@
             this.labelClassification = new System.Windows.Forms.Label();
             this.logBox = new System.Windows.Forms.RichTextBox();
             this.buttonClearLog = new System.Windows.Forms.Button();
-            this.buttonShowLog = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
+            this.logButton = new System.Windows.Forms.Button();
+            this.groupBoxID = new System.Windows.Forms.GroupBox();
+            this.groupBoxSepal = new System.Windows.Forms.GroupBox();
+            this.groupBoxPetal = new System.Windows.Forms.GroupBox();
+            this.groupBoxDiagnoze = new System.Windows.Forms.GroupBox();
+            this.listButton = new System.Windows.Forms.Button();
+            this.instructionsButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.groupBoxID.SuspendLayout();
+            this.groupBoxSepal.SuspendLayout();
+            this.groupBoxPetal.SuspendLayout();
+            this.groupBoxDiagnoze.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 155);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(810, 515);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView.AllowUserToAddRows = false;
+            this.dataGridView.AllowUserToDeleteRows = false;
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Location = new System.Drawing.Point(10, 155);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.ReadOnly = true;
+            this.dataGridView.Size = new System.Drawing.Size(810, 515);
+            this.dataGridView.TabIndex = 0;
+            this.dataGridView.MouseLeave += new System.EventHandler(this.dataGridView_MouseLeave);
+            this.dataGridView.MouseHover += new System.EventHandler(this.dataGridView_MouseHover);
             // 
             // textBoxSepalLength
             // 
             this.textBoxSepalLength.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBoxSepalLength.BackColor = System.Drawing.Color.White;
             this.textBoxSepalLength.Location = new System.Drawing.Point(3, 34);
             this.textBoxSepalLength.Margin = new System.Windows.Forms.Padding(30, 3, 30, 15);
             this.textBoxSepalLength.Name = "textBoxSepalLength";
@@ -81,9 +88,12 @@
             this.textBoxSepalLength.TabIndex = 1;
             this.textBoxSepalLength.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxSepalLength.TextChanged += new System.EventHandler(this.textBoxSepalLength_TextChanged);
+            this.textBoxSepalLength.MouseLeave += new System.EventHandler(this.textBoxSepalLength_MouseLeave);
+            this.textBoxSepalLength.MouseHover += new System.EventHandler(this.textBoxSepalLength_MouseHover);
             // 
             // textBoxSepalWidth
             // 
+            this.textBoxSepalWidth.BackColor = System.Drawing.Color.White;
             this.textBoxSepalWidth.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.textBoxSepalWidth.Location = new System.Drawing.Point(3, 75);
             this.textBoxSepalWidth.Margin = new System.Windows.Forms.Padding(30, 3, 30, 15);
@@ -92,10 +102,13 @@
             this.textBoxSepalWidth.TabIndex = 2;
             this.textBoxSepalWidth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxSepalWidth.TextChanged += new System.EventHandler(this.textBoxSepalWidth_TextChanged);
+            this.textBoxSepalWidth.MouseLeave += new System.EventHandler(this.textBoxSepalWidth_MouseLeave);
+            this.textBoxSepalWidth.MouseHover += new System.EventHandler(this.textBoxSepalWidth_MouseHover);
             // 
             // textBoxPetalLength
             // 
             this.textBoxPetalLength.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBoxPetalLength.BackColor = System.Drawing.Color.White;
             this.textBoxPetalLength.Location = new System.Drawing.Point(3, 34);
             this.textBoxPetalLength.Margin = new System.Windows.Forms.Padding(30, 3, 30, 15);
             this.textBoxPetalLength.Name = "textBoxPetalLength";
@@ -103,9 +116,12 @@
             this.textBoxPetalLength.TabIndex = 3;
             this.textBoxPetalLength.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxPetalLength.TextChanged += new System.EventHandler(this.textBoxPetalLength_TextChanged);
+            this.textBoxPetalLength.MouseLeave += new System.EventHandler(this.textBoxPetalLength_MouseLeave);
+            this.textBoxPetalLength.MouseHover += new System.EventHandler(this.textBoxPetalLength_MouseHover);
             // 
             // textBoxPetalWidth
             // 
+            this.textBoxPetalWidth.BackColor = System.Drawing.Color.White;
             this.textBoxPetalWidth.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.textBoxPetalWidth.Location = new System.Drawing.Point(3, 75);
             this.textBoxPetalWidth.Margin = new System.Windows.Forms.Padding(30, 3, 30, 15);
@@ -114,69 +130,80 @@
             this.textBoxPetalWidth.TabIndex = 4;
             this.textBoxPetalWidth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxPetalWidth.TextChanged += new System.EventHandler(this.textBoxPetalWidth_TextChanged);
+            this.textBoxPetalWidth.MouseLeave += new System.EventHandler(this.textBoxPetalWidth_MouseLeave);
+            this.textBoxPetalWidth.MouseHover += new System.EventHandler(this.textBoxPetalWidth_MouseHover);
             // 
-            // loadButton
+            // reloadButton
             // 
-            this.loadButton.Location = new System.Drawing.Point(12, 118);
-            this.loadButton.Margin = new System.Windows.Forms.Padding(30, 30, 30, 15);
-            this.loadButton.Name = "loadButton";
-            this.loadButton.Size = new System.Drawing.Size(164, 30);
-            this.loadButton.TabIndex = 5;
-            this.loadButton.Text = "Odśwież Bazę";
-            this.loadButton.UseVisualStyleBackColor = true;
-            this.loadButton.Click += new System.EventHandler(this.loadButton_Click);
+            this.reloadButton.BackColor = System.Drawing.Color.Gainsboro;
+            this.reloadButton.Location = new System.Drawing.Point(12, 118);
+            this.reloadButton.Margin = new System.Windows.Forms.Padding(30, 30, 30, 15);
+            this.reloadButton.Name = "reloadButton";
+            this.reloadButton.Size = new System.Drawing.Size(164, 30);
+            this.reloadButton.TabIndex = 5;
+            this.reloadButton.Text = "Odśwież Bazę";
+            this.reloadButton.UseVisualStyleBackColor = false;
+            this.reloadButton.Click += new System.EventHandler(this.loadButton_Click);
             // 
             // saveButton
             // 
+            this.saveButton.BackColor = System.Drawing.Color.Gainsboro;
             this.saveButton.Location = new System.Drawing.Point(182, 118);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(334, 30);
             this.saveButton.TabIndex = 6;
             this.saveButton.Text = "Dodaj Kompletny Wpis Do Bazy";
-            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.UseVisualStyleBackColor = false;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
-            // button1
+            // modifyButton
             // 
-            this.button1.Location = new System.Drawing.Point(3, 41);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(158, 25);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Modyfikuj po ID";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.modifyButton_Click);
+            this.modifyButton.BackColor = System.Drawing.Color.Gainsboro;
+            this.modifyButton.Location = new System.Drawing.Point(3, 41);
+            this.modifyButton.Name = "modifyButton";
+            this.modifyButton.Size = new System.Drawing.Size(158, 25);
+            this.modifyButton.TabIndex = 7;
+            this.modifyButton.Text = "Modyfikuj po ID";
+            this.modifyButton.UseVisualStyleBackColor = false;
+            this.modifyButton.Click += new System.EventHandler(this.modifyButton_Click);
             // 
             // deleteButton
             // 
+            this.deleteButton.BackColor = System.Drawing.Color.Gainsboro;
             this.deleteButton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.deleteButton.Location = new System.Drawing.Point(3, 72);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(158, 25);
             this.deleteButton.TabIndex = 8;
             this.deleteButton.Text = "Usuń po ID";
-            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.UseVisualStyleBackColor = false;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // diagnozeButton
             // 
+            this.diagnozeButton.BackColor = System.Drawing.Color.Gainsboro;
             this.diagnozeButton.Location = new System.Drawing.Point(3, 62);
             this.diagnozeButton.Name = "diagnozeButton";
             this.diagnozeButton.Size = new System.Drawing.Size(208, 25);
             this.diagnozeButton.TabIndex = 9;
             this.diagnozeButton.Text = "Diagnozuj";
-            this.diagnozeButton.UseVisualStyleBackColor = true;
+            this.diagnozeButton.UseVisualStyleBackColor = false;
             this.diagnozeButton.Click += new System.EventHandler(this.diagnozeButton_Click);
             // 
             // textBoxID
             // 
+            this.textBoxID.BackColor = System.Drawing.Color.White;
             this.textBoxID.Location = new System.Drawing.Point(6, 13);
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(155, 22);
             this.textBoxID.TabIndex = 10;
             this.textBoxID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxID.MouseLeave += new System.EventHandler(this.textBoxID_MouseLeave);
+            this.textBoxID.MouseHover += new System.EventHandler(this.textBoxID_MouseHover);
             // 
             // textBoxVectorNumber
             // 
+            this.textBoxVectorNumber.BackColor = System.Drawing.Color.White;
             this.textBoxVectorNumber.Location = new System.Drawing.Point(3, 34);
             this.textBoxVectorNumber.Name = "textBoxVectorNumber";
             this.textBoxVectorNumber.Size = new System.Drawing.Size(208, 22);
@@ -184,6 +211,8 @@
             this.textBoxVectorNumber.Text = "1";
             this.textBoxVectorNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxVectorNumber.TextChanged += new System.EventHandler(this.textBoxVectorNumber_TextChanged);
+            this.textBoxVectorNumber.MouseLeave += new System.EventHandler(this.textBoxVectorNumber_MouseLeave);
+            this.textBoxVectorNumber.MouseHover += new System.EventHandler(this.textBoxVectorNumber_MouseHover);
             // 
             // labelVectorNumber
             // 
@@ -237,7 +266,7 @@
             // 
             // textBoxClassification
             // 
-            this.textBoxClassification.BackColor = System.Drawing.SystemColors.Window;
+            this.textBoxClassification.BackColor = System.Drawing.Color.White;
             this.textBoxClassification.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.textBoxClassification.Location = new System.Drawing.Point(3, 112);
             this.textBoxClassification.Name = "textBoxClassification";
@@ -245,6 +274,8 @@
             this.textBoxClassification.Size = new System.Drawing.Size(208, 22);
             this.textBoxClassification.TabIndex = 18;
             this.textBoxClassification.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxClassification.MouseLeave += new System.EventHandler(this.textBoxClassification_MouseLeave);
+            this.textBoxClassification.MouseHover += new System.EventHandler(this.textBoxClassification_MouseHover);
             // 
             // labelClassification
             // 
@@ -264,6 +295,8 @@
             this.logBox.Size = new System.Drawing.Size(410, 610);
             this.logBox.TabIndex = 20;
             this.logBox.Text = "";
+            this.logBox.MouseLeave += new System.EventHandler(this.logBox_MouseLeave);
+            this.logBox.MouseHover += new System.EventHandler(this.logBox_MouseHover);
             // 
             // buttonClearLog
             // 
@@ -276,124 +309,140 @@
             this.buttonClearLog.UseVisualStyleBackColor = false;
             this.buttonClearLog.Click += new System.EventHandler(this.buttonClearLog_Click);
             // 
-            // buttonShowLog
+            // logButton
             // 
-            this.buttonShowLog.Location = new System.Drawing.Point(745, 84);
-            this.buttonShowLog.Name = "buttonShowLog";
-            this.buttonShowLog.Size = new System.Drawing.Size(75, 65);
-            this.buttonShowLog.TabIndex = 22;
-            this.buttonShowLog.Text = "Ukryj log";
-            this.buttonShowLog.UseVisualStyleBackColor = true;
-            this.buttonShowLog.Click += new System.EventHandler(this.buttonShowLog_Click);
+            this.logButton.BackColor = System.Drawing.Color.Gainsboro;
+            this.logButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.logButton.Location = new System.Drawing.Point(745, 106);
+            this.logButton.Name = "logButton";
+            this.logButton.Size = new System.Drawing.Size(75, 42);
+            this.logButton.TabIndex = 22;
+            this.logButton.Text = "Ukryj log";
+            this.logButton.UseVisualStyleBackColor = false;
+            this.logButton.Click += new System.EventHandler(this.buttonShowLog_Click);
             // 
-            // groupBox1
+            // groupBoxID
             // 
-            this.groupBox1.Controls.Add(this.textBoxID);
-            this.groupBox1.Controls.Add(this.deleteButton);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(164, 100);
-            this.groupBox1.TabIndex = 23;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "ID";
+            this.groupBoxID.Controls.Add(this.textBoxID);
+            this.groupBoxID.Controls.Add(this.deleteButton);
+            this.groupBoxID.Controls.Add(this.modifyButton);
+            this.groupBoxID.Location = new System.Drawing.Point(12, 12);
+            this.groupBoxID.Name = "groupBoxID";
+            this.groupBoxID.Size = new System.Drawing.Size(164, 100);
+            this.groupBoxID.TabIndex = 23;
+            this.groupBoxID.TabStop = false;
+            this.groupBoxID.Text = "ID";
             // 
-            // groupBox2
+            // groupBoxSepal
             // 
-            this.groupBox2.Controls.Add(this.textBoxSepalWidth);
-            this.groupBox2.Controls.Add(this.textBoxSepalLength);
-            this.groupBox2.Controls.Add(this.labelSepalWidth);
-            this.groupBox2.Controls.Add(this.labelSepalLength);
-            this.groupBox2.Location = new System.Drawing.Point(182, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(164, 100);
-            this.groupBox2.TabIndex = 24;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Działka Kielicha";
+            this.groupBoxSepal.Controls.Add(this.textBoxSepalWidth);
+            this.groupBoxSepal.Controls.Add(this.textBoxSepalLength);
+            this.groupBoxSepal.Controls.Add(this.labelSepalWidth);
+            this.groupBoxSepal.Controls.Add(this.labelSepalLength);
+            this.groupBoxSepal.Location = new System.Drawing.Point(182, 12);
+            this.groupBoxSepal.Name = "groupBoxSepal";
+            this.groupBoxSepal.Size = new System.Drawing.Size(164, 100);
+            this.groupBoxSepal.TabIndex = 24;
+            this.groupBoxSepal.TabStop = false;
+            this.groupBoxSepal.Text = "Działka Kielicha";
             // 
-            // groupBox3
+            // groupBoxPetal
             // 
-            this.groupBox3.Controls.Add(this.textBoxPetalWidth);
-            this.groupBox3.Controls.Add(this.textBoxPetalLength);
-            this.groupBox3.Controls.Add(this.labelPetalLength);
-            this.groupBox3.Controls.Add(this.labelPetalWidth);
-            this.groupBox3.Location = new System.Drawing.Point(352, 12);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(164, 100);
-            this.groupBox3.TabIndex = 25;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Płatek";
+            this.groupBoxPetal.Controls.Add(this.textBoxPetalWidth);
+            this.groupBoxPetal.Controls.Add(this.textBoxPetalLength);
+            this.groupBoxPetal.Controls.Add(this.labelPetalLength);
+            this.groupBoxPetal.Controls.Add(this.labelPetalWidth);
+            this.groupBoxPetal.Location = new System.Drawing.Point(352, 12);
+            this.groupBoxPetal.Name = "groupBoxPetal";
+            this.groupBoxPetal.Size = new System.Drawing.Size(164, 100);
+            this.groupBoxPetal.TabIndex = 25;
+            this.groupBoxPetal.TabStop = false;
+            this.groupBoxPetal.Text = "Płatek";
             // 
-            // groupBox4
+            // groupBoxDiagnoze
             // 
-            this.groupBox4.Controls.Add(this.labelVectorNumber);
-            this.groupBox4.Controls.Add(this.textBoxVectorNumber);
-            this.groupBox4.Controls.Add(this.diagnozeButton);
-            this.groupBox4.Controls.Add(this.labelClassification);
-            this.groupBox4.Controls.Add(this.textBoxClassification);
-            this.groupBox4.Location = new System.Drawing.Point(522, 12);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(214, 137);
-            this.groupBox4.TabIndex = 26;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Diagnoza";
+            this.groupBoxDiagnoze.Controls.Add(this.labelVectorNumber);
+            this.groupBoxDiagnoze.Controls.Add(this.textBoxVectorNumber);
+            this.groupBoxDiagnoze.Controls.Add(this.diagnozeButton);
+            this.groupBoxDiagnoze.Controls.Add(this.labelClassification);
+            this.groupBoxDiagnoze.Controls.Add(this.textBoxClassification);
+            this.groupBoxDiagnoze.Location = new System.Drawing.Point(522, 12);
+            this.groupBoxDiagnoze.Name = "groupBoxDiagnoze";
+            this.groupBoxDiagnoze.Size = new System.Drawing.Size(214, 137);
+            this.groupBoxDiagnoze.TabIndex = 26;
+            this.groupBoxDiagnoze.TabStop = false;
+            this.groupBoxDiagnoze.Text = "Diagnoza";
             // 
-            // button2
+            // listButton
             // 
-            this.button2.Location = new System.Drawing.Point(745, 19);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 65);
-            this.button2.TabIndex = 27;
-            this.button2.Text = "Pokaż Listę Odległości";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.buttonListOfDistances_Click);
+            this.listButton.BackColor = System.Drawing.Color.Gainsboro;
+            this.listButton.Location = new System.Drawing.Point(745, 17);
+            this.listButton.Name = "listButton";
+            this.listButton.Size = new System.Drawing.Size(75, 42);
+            this.listButton.TabIndex = 27;
+            this.listButton.Text = "Pokaż Listę Odległości";
+            this.listButton.UseVisualStyleBackColor = false;
+            this.listButton.Click += new System.EventHandler(this.buttonListOfDistances_Click);
+            // 
+            // instructionsButton
+            // 
+            this.instructionsButton.BackColor = System.Drawing.Color.Gainsboro;
+            this.instructionsButton.Location = new System.Drawing.Point(745, 61);
+            this.instructionsButton.Name = "instructionsButton";
+            this.instructionsButton.Size = new System.Drawing.Size(75, 42);
+            this.instructionsButton.TabIndex = 28;
+            this.instructionsButton.Text = "Pokaż Instrukcje";
+            this.instructionsButton.UseVisualStyleBackColor = false;
+            this.instructionsButton.Click += new System.EventHandler(this.buttonInstructions_Click);
             // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.buttonShowLog);
+            this.Controls.Add(this.instructionsButton);
+            this.Controls.Add(this.listButton);
+            this.Controls.Add(this.groupBoxDiagnoze);
+            this.Controls.Add(this.groupBoxPetal);
+            this.Controls.Add(this.groupBoxSepal);
+            this.Controls.Add(this.groupBoxID);
+            this.Controls.Add(this.logButton);
             this.Controls.Add(this.buttonClearLog);
             this.Controls.Add(this.logBox);
             this.Controls.Add(this.saveButton);
-            this.Controls.Add(this.loadButton);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.reloadButton);
+            this.Controls.Add(this.dataGridView);
             this.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1280, 720);
             this.MinimumSize = new System.Drawing.Size(820, 720);
             this.Name = "Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "KNN";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            this.Text = "KNN - Diagnoza Kwiatu Irysa";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            this.groupBoxID.ResumeLayout(false);
+            this.groupBoxID.PerformLayout();
+            this.groupBoxSepal.ResumeLayout(false);
+            this.groupBoxSepal.PerformLayout();
+            this.groupBoxPetal.ResumeLayout(false);
+            this.groupBoxPetal.PerformLayout();
+            this.groupBoxDiagnoze.ResumeLayout(false);
+            this.groupBoxDiagnoze.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.TextBox textBoxSepalLength;
         private System.Windows.Forms.TextBox textBoxSepalWidth;
         private System.Windows.Forms.TextBox textBoxPetalLength;
         private System.Windows.Forms.TextBox textBoxPetalWidth;
-        private System.Windows.Forms.Button loadButton;
+        private System.Windows.Forms.Button reloadButton;
         private System.Windows.Forms.Button saveButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button modifyButton;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button diagnozeButton;
         private System.Windows.Forms.TextBox textBoxID;
@@ -407,12 +456,13 @@
         private System.Windows.Forms.Label labelClassification;
         private System.Windows.Forms.RichTextBox logBox;
         private System.Windows.Forms.Button buttonClearLog;
-        private System.Windows.Forms.Button buttonShowLog;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button logButton;
+        private System.Windows.Forms.GroupBox groupBoxID;
+        private System.Windows.Forms.GroupBox groupBoxSepal;
+        private System.Windows.Forms.GroupBox groupBoxPetal;
+        private System.Windows.Forms.GroupBox groupBoxDiagnoze;
+        private System.Windows.Forms.Button listButton;
+        private System.Windows.Forms.Button instructionsButton;
     }
 }
 
